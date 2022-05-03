@@ -1,0 +1,184 @@
+basePath: /
+definitions:
+  main.Response:
+    properties:
+      data: {}
+      msg:
+        type: string
+    type: object
+host: localhost:8000
+info:
+  contact:
+    name: go-swagger幫助文檔
+    url: https://github.com/swaggo/swag/blob/master/README_zh-CN.md
+  description: gin+gorm crud 測試swagger
+  license:
+    name: Apache 2.0
+  title: gin+gorm crud 測試swagger
+  version: "1.0"
+paths:
+  /sql:
+    get:
+      consumes:
+      - application/json
+      description: 查詢time
+      parameters:
+      - description: 2017-12-01 04:09
+        format: time
+        in: query
+        name: start
+        required: true
+        type: string
+      - description: 2017-12-01 04:10
+        format: time
+        in: query
+        name: end
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: 查詢time
+      tags:
+      - time
+    post:
+      consumes:
+      - application/json
+      description: 新增log
+      parameters:
+      - description: 0.0.0.0
+        format: ip
+        in: query
+        name: ip
+        required: true
+        type: string
+      - description: GET / HTTP/1.1
+        format: data
+        in: query
+        name: data
+        required: true
+        type: string
+      - description: "200"
+        format: status
+        in: query
+        name: status
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: 新增log
+      tags:
+      - logs
+  /sql/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: 刪除log
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: 刪除log
+      tags:
+      - logs
+    get:
+      consumes:
+      - application/json
+      description: 查詢log
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: 查詢log
+      tags:
+      - logs
+    patch:
+      consumes:
+      - application/json
+      description: 更新log
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: 0.0.0.0
+        format: ip
+        in: query
+        name: ip
+        required: true
+        type: string
+      - description: GET / HTTP/1.1
+        format: data
+        in: query
+        name: data
+        required: true
+        type: string
+      - description: "200"
+        format: status
+        in: query
+        name: status
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: 更新log
+      tags:
+      - logs
+swagger: "2.0"
