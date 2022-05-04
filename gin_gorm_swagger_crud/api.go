@@ -41,7 +41,7 @@ func Time(c *gin.Context) {
 	end := c.Request.URL.Query().Get("end")
 	var log []Log
 	// 取得 user 結構體 (繼承相關屬性)
-	_ = c.BindJSON(&log)
+	_ = c.ShouldBind(&log)
 	db.Where("time BETWEEN ? AND ?", start, end).Find(&log)
 	c.JSON(http.StatusOK, gin.H{
 		"messege": "successfuly",
@@ -97,13 +97,19 @@ func Delete(c *gin.Context) {
 	if log.Id == 0 {
 		return
 	}
-	db.Unscoped().Delete(&log)
+	// **Delete** 硬刪除
+	//db.Unscoped().Delete(&log)
+
+	// **Delete** 軟刪除
+	db.Delete(&Log{},"id = ?", log.Id) 
+	
 	c.JSON(http.StatusOK, Response{
 		Msg:  "deleted successfuly",
 		Data: "",
 	})
 
 }
+
 
 
 // @Summary      更新log
