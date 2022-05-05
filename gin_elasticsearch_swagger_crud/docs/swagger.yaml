@@ -1,0 +1,54 @@
+basePath: /
+definitions:
+  main.Response:
+    properties:
+      data: {}
+      msg:
+        type: string
+    type: object
+host: 127.0.0.1:8001
+info:
+  contact:
+    name: go-swagger幫助文檔
+    url: https://github.com/swaggo/swag/blob/master/README_zh-CN.md
+  description: gin+gorm crud 測試swagger
+  license:
+    name: Apache 2.0
+  title: gin+ElasticSearch crud 測試 swagger
+  version: "1.0"
+paths:
+  /es:
+    get:
+      consumes:
+      - application/json
+      description: 查詢log
+      parameters:
+      - description: 207.46.13.9
+        format: ip
+        in: query
+        name: ip
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: 查詢log
+      tags:
+      - ElasticSearch
+swagger: "2.0"
