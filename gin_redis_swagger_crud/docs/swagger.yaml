@@ -1,0 +1,169 @@
+basePath: /
+definitions:
+  main.Response:
+    properties:
+      data: {}
+      msg:
+        type: string
+    type: object
+host: localhost:8001
+info:
+  contact:
+    name: go-swagger.doc
+    url: https://github.com/swaggo/swag/blob/master/README_zh-CN.md
+  description: gin+redis CRUD swagger
+  license:
+    name: Apache 2.0
+  title: gin+redis CRUD swagger
+  version: "1.0"
+paths:
+  /redis:
+    delete:
+      consumes:
+      - application/json
+      description: 刪除
+      parameters:
+      - description: id
+        format: id
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Delete
+      tags:
+      - redis
+    get:
+      consumes:
+      - application/json
+      description: 查詢
+      parameters:
+      - description: id
+        format: id
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Read
+      tags:
+      - redis
+    patch:
+      consumes:
+      - application/json
+      description: 修改
+      parameters:
+      - description: id
+        format: id
+        in: query
+        name: id
+        required: true
+        type: string
+      - description: name
+        format: name
+        in: query
+        name: name
+        required: true
+        type: string
+      - description: "18"
+        format: age
+        in: query
+        name: age
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Update
+      tags:
+      - redis
+    post:
+      consumes:
+      - application/json
+      description: 新增
+      parameters:
+      - description: id
+        format: id
+        in: query
+        name: id
+        required: true
+        type: string
+      - description: name
+        format: name
+        in: query
+        name: name
+        required: true
+        type: string
+      - description: "18"
+        format: age
+        in: query
+        name: age
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Create
+      tags:
+      - redis
+  /redis/all:
+    get:
+      consumes:
+      - application/json
+      description: 獲取所有資料
+      parameters:
+      - description: id
+        in: path
+        name: id
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Read All Data
+      tags:
+      - redis_all
+swagger: "2.0"
