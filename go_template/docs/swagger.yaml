@@ -1,0 +1,343 @@
+basePath: /
+definitions:
+  model.Response:
+    properties:
+      data: {}
+      msg:
+        type: string
+    type: object
+host: localhost:8000
+info:
+  contact:
+    name: go-swagger.doc
+    url: https://github.com/swaggo/swag/blob/master/README_zh-CN.md
+  description: go_template swagger
+  license:
+    name: Apache 2.0
+  title: go_template swagger
+  version: "1.0"
+paths:
+  /es:
+    get:
+      consumes:
+      - application/json
+      description: 查詢log
+      parameters:
+      - description: 207.46.13.9
+        format: ip
+        in: query
+        name: ip
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/model.Response'
+      summary: 查詢log
+      tags:
+      - ElasticSearch
+  /redis:
+    delete:
+      consumes:
+      - application/json
+      description: 刪除
+      parameters:
+      - description: id
+        format: id
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/model.Response'
+      summary: Delete
+      tags:
+      - Redis
+    get:
+      consumes:
+      - application/json
+      description: 查詢
+      parameters:
+      - description: id
+        format: id
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/model.Response'
+      summary: Read
+      tags:
+      - Redis
+    patch:
+      consumes:
+      - application/json
+      description: 修改
+      parameters:
+      - description: id
+        format: id
+        in: query
+        name: id
+        required: true
+        type: string
+      - description: name
+        format: name
+        in: query
+        name: name
+        required: true
+        type: string
+      - description: "18"
+        format: age
+        in: query
+        name: age
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/model.Response'
+      summary: Update
+      tags:
+      - Redis
+    post:
+      consumes:
+      - application/json
+      description: 新增
+      parameters:
+      - description: id
+        format: id
+        in: query
+        name: id
+        required: true
+        type: string
+      - description: name
+        format: name
+        in: query
+        name: name
+        required: true
+        type: string
+      - description: "18"
+        format: age
+        in: query
+        name: age
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/model.Response'
+      summary: Create
+      tags:
+      - Redis
+  /redis/all:
+    get:
+      consumes:
+      - application/json
+      description: 獲取所有資料
+      parameters:
+      - description: id
+        in: path
+        name: id
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/model.Response'
+      summary: Read All Data
+      tags:
+      - Redis_SearchAll
+  /sql:
+    get:
+      consumes:
+      - application/json
+      description: 查詢time
+      parameters:
+      - description: 2017-12-01 04:09
+        format: time
+        in: query
+        name: start
+        required: true
+        type: string
+      - description: 2017-12-01 04:10
+        format: time
+        in: query
+        name: end
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Response'
+      summary: 查詢time
+      tags:
+      - MySQL_SearchTime
+    post:
+      consumes:
+      - application/json
+      description: 新增log
+      parameters:
+      - description: 0.0.0.0
+        format: ip
+        in: query
+        name: ip
+        required: true
+        type: string
+      - description: GET / HTTP/1.1
+        format: data
+        in: query
+        name: data
+        required: true
+        type: string
+      - description: "200"
+        format: status
+        in: query
+        name: status
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/model.Response'
+      summary: 新增log
+      tags:
+      - MySQL
+  /sql/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: 刪除log
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Response'
+      summary: 刪除log
+      tags:
+      - MySQL
+    get:
+      consumes:
+      - application/json
+      description: 查詢log
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/model.Response'
+      summary: 查詢log
+      tags:
+      - MySQL
+    patch:
+      consumes:
+      - application/json
+      description: 更新log
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: 0.0.0.0
+        format: ip
+        in: query
+        name: ip
+        required: true
+        type: string
+      - description: GET / HTTP/1.1
+        format: data
+        in: query
+        name: data
+        required: true
+        type: string
+      - description: "200"
+        format: status
+        in: query
+        name: status
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Response'
+      summary: 更新log
+      tags:
+      - MySQL
+swagger: "2.0"
