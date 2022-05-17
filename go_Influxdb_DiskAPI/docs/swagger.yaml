@@ -1,0 +1,78 @@
+basePath: /
+definitions:
+  model.Response:
+    properties:
+      data: {}
+      msg:
+        type: string
+    type: object
+host: localhost:8000
+info:
+  contact:
+    name: go-swagger.doc
+    url: https://github.com/swaggo/swag/blob/master/README_zh-CN.md
+  description: disk 預警天數 api
+  license:
+    name: Apache 2.0
+  title: go_DiskAPI swagger
+  version: "1.0"
+paths:
+  /influx:
+    get:
+      consumes:
+      - application/json
+      description: 取得 Disk 90% 滿載天數
+      parameters:
+      - description: bucket
+        format: bucket
+        in: query
+        name: bucket
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/model.Response'
+      summary: 取得 Disk 90% 滿載天數
+      tags:
+      - Influx
+  /influx/2:
+    get:
+      consumes:
+      - application/json
+      description: 取得 Disk 圖表資料
+      parameters:
+      - description: bucket
+        format: bucket
+        in: query
+        name: bucket
+        required: true
+        type: string
+      - description: device
+        format: device
+        in: query
+        name: device
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/model.Response'
+      summary: 取得 Disk 圖表資料
+      tags:
+      - Influx
+swagger: "2.0"

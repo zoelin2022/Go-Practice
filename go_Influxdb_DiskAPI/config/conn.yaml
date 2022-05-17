@@ -1,0 +1,12 @@
+databases:
+  influx:
+    bucket: "ipoc"
+    token: "WyZkRk6qztF0iPUxaSBfbUxHhTVqZuZHS9vwhnQKvzzapJG4BLa5fRxYXkbDkpbUDF-GAyPta1WNVn4pRUHtzA=="
+    org: "bimap"
+    port: "http://10.99.1.240:8086"
+
+  server:
+    port: "localhost:8000"
+
+
+   
